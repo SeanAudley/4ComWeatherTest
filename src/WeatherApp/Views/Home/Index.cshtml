@@ -1,0 +1,39 @@
+﻿@model WeatherApp.Models.WeatherModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Weather</h1>
+<p>
+    Welcome to the Simple Weather App.
+    This simple weather application will use the simulated BBC and AccuWeather API's to calculate and display the aggregated average.
+</p>
+<p>
+    To use, please enter your location and select how you want the temperature and windspeed displayed.
+</p>
+<hr />
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Location)
+        @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Location)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.WindType)
+        <select asp-for="WindType" class="form-control">
+            <option value="0">MPH</option>
+            <option value="1">KPH</option>
+        </select>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TemperatureType)
+        <select asp-for="TemperatureType" class="form-control">
+            <option value="0">Celsius</option>
+            <option value="1">Farenheit</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit">Continue</button>
+    </div>
+}

@@ -1,0 +1,18 @@
+﻿
+@model WeatherApp.Models.WeatherModel
+
+
+<h1>Weather Results</h1>
+<br />
+@Html.LabelFor(model => model.Location)<br />
+@Html.DisplayFor(m => m.Location)<br />
+<br />
+@Html.LabelFor(model => model.DisplayTemperature) <br />
+@Html.DisplayFor(m => m.DisplayTemperature)<br />
+<br />
+@Html.LabelFor(model => model.DisplayWind)<br />
+@Html.DisplayFor(m => m.DisplayWind)<br />
+<br />
+<div>
+    <input type="button" value="Back" onclick="location.href='@Url.Action("Index", "Home")'" />
+</div>
